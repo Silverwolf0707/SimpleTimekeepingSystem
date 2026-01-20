@@ -12,7 +12,11 @@ A distributed timekeeping system using Apache Kafka for processing employee chec
 ## Setup Instructions
 ```bash
 ### 1. git clone https://github.com/Silverwolf0707/SimpleTimekeepingSystem.git
-
+```
+```bash
 ### 2. cd timekeeping-app
+```
 run on separate terminals
+```bash
 ### 3. python app.py  python kafka_consumer.py  notification_consumer.py  analytics_consumer.py
+```
