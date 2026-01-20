@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Timekeeping App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1 class="login-title">⏱️ TimeKeeper</h1>
+                <p class="login-subtitle">Track your time with precision and ease</p>
+            </div>
+            
+            {% if error %}
+            <div class="error">
+                <strong>⚠️ Authentication Failed</strong><br>
+                {{ error }}
+            </div>
+            {% endif %}
+            
+            <form method="POST">
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input 
+                        type="text" 
+                        id="username"
+                        name="username" 
+                        class="form-input"
+                        placeholder="Enter your username" 
+                        required 
+                        autofocus
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input 
+                        type="password" 
+                        id="password"
+                        name="password" 
+                        class="form-input"
+                        placeholder="Enter your password" 
+                        required
+                    >
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <span>Sign In</span>
+                    <span style="font-size: 1.1rem;">→</span>
+                </button>
+            </form>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.85rem;">
+                    Demo credentials: <strong style="color: var(--text-secondary);">admin / admin123</strong><br><strong style="color: var(--text-secondary);">user / user123</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

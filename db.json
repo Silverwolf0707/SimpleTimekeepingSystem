@@ -1,0 +1,12 @@
+[
+    {
+        "id": 2,
+        "user_id": 2,
+        "description": "Minutes of Meeting",
+        "project": "Meeting",
+        "start_time": "2026-01-20T12:33:13.628239+00:00",
+        "end_time": "2026-01-20T12:33:23.979776+00:00",
+        "duration": 10,
+        "status": "stopped"
+    }
+]

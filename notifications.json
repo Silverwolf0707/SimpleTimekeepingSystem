@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "type": "timer",
+        "title": "Timer Started",
+        "message": "User 2 started working on: Minutes of Meeting",
+        "timestamp": "2026-01-20T12:33:13.638665+00:00",
+        "read": false,
+        "data": {
+            "id": 2,
+            "user_id": 2,
+            "description": "Minutes of Meeting",
+            "project": "Meeting",
+            "start_time": "2026-01-20T12:33:13.628239+00:00",
+            "end_time": null,
+            "duration": 0,
+            "status": "active"
+        }
+    },
+    {
+        "id": 2,
+        "type": "success",
+        "title": "Timer Stopped",
+        "message": "User 2 completed a timer session",
+        "timestamp": "2026-01-20T12:33:23.987291+00:00",
+        "read": false,
+        "data": {
+            "id": 2,
+            "user_id": 2,
+            "end_time": "2026-01-20T12:33:23.979776+00:00"
+        }
+    }
+]

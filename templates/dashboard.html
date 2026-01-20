@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Timekeeping App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+      
+        <header class="dashboard-header">
+            <div class="welcome-section">
+                <h1>👋 Welcome back, {{ user.username }}!</h1>
+                <p>Track your productivity and manage your time effectively</p>
+            </div>
+            <div class="header-actions">
+                <div class="user-badge">
+                    <strong>{{ user.role | upper }}</strong>
+                </div>
+                <a href="/logout" class="btn btn-secondary btn-sm" style="text-decoration: none;">
+                    Logout ➜
+                </a>
+            </div>
+        </header>
+
+      
+        <section class="timer-card">
+            <h2>Start New Timer</h2>
+            <form onsubmit="event.preventDefault(); startTimer();" class="timer-form">
+                <div class="form-control">
+                    <label for="description">What are you working on?</label>
+                    <input 
+                        type="text" 
+                        id="description" 
+                        placeholder="e.g., Design landing page, Code review, Team meeting..."
+                        autofocus
+                    >
+                </div>
+                <div class="form-control">
+                    <label for="project">Project</label>
+                    <select id="project">
+                        <option>General</option>
+                        <option>Development</option>
+                        <option>Design</option>
+                        <option>Marketing</option>
+                        <option>Research</option>
+                        <option>Meeting</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label style="opacity: 0;">Action</label>
+                    <button type="submit" id="start-btn" class="btn btn-success">
+                        <span>Start Timer</span>
+                        <span style="font-size: 1.1rem;">▶</span>
+                    </button>
+                </div>
+            </form>
+            <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.85rem;">
+                💡 <strong>Tip:</strong> Press <kbd style="background: var(--dark-card); padding: 0.2rem 0.5rem; border-radius: 0.25rem; border: 1px solid var(--border-color); font-family: monospace;">Ctrl + Enter</kbd> to quickly start timer
+            </p>
+        </section>
+
+  
+        <section class="entries-card">
+            <h2>Time Entries (Live Updates)</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">ID</th>
+                            <th>Description</th>
+                            <th style="width: 140px;">Project</th>
+                            <th style="width: 160px;">Started</th>
+                            <th style="width: 160px;">Ended</th>
+                            <th style="width: 140px;">Duration</th>
+                            <th style="width: 120px;">Status</th>
+                            <th style="width: 100px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="entries-body">
+                        <tr>
+                            <td colspan="8" style="text-align: center; padding: 3rem;">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon">⏳</div>
+                                    <h3>Loading entries...</h3>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

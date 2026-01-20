@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Timekeeping Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='admin_dashboard.js') }}" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="welcome-section">
+                <h1>📊 Admin Dashboard</h1>
+                <p>Real-time analytics and system monitoring</p>
+            </div>
+            <div class="header-actions">
+                <div class="user-badge" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">
+                    <strong>ADMIN</strong>
+                </div>
+                <a href="/dashboard" class="btn btn-secondary btn-sm" style="text-decoration: none;">
+                    User Dashboard
+                </a>
+                <a href="/logout" class="btn btn-danger btn-sm" style="text-decoration: none;">
+                    Logout
+                </a>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">📈</div>
+                <div class="stat-content">
+                    <h3 id="total-hours">0</h3>
+                    <p>Total Hours Tracked</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">⏱️</div>
+                <div class="stat-content">
+                    <h3 id="total-sessions">0</h3>
+                    <p>Total Sessions</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">👥</div>
+                <div class="stat-content">
+                    <h3 id="active-users">0</h3>
+                    <p>Active Users</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">📋</div>
+                <div class="stat-content">
+                    <h3 id="total-projects">0</h3>
+                    <p>Projects</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-card">
+                <h2>Hourly Activity</h2>
+                <div class="chart-container">
+                    <canvas id="hourlyChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h2>Project Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="projectChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section class="notifications-card">
+            <div class="notifications-header">
+                <h2>📨 System Notifications</h2>
+                <button onclick="markAllAsRead()" class="btn btn-secondary btn-sm">Mark All as Read</button>
+            </div>
+            <div class="notifications-list" id="notifications-list">
+                <div class="notification-item">
+                    <div class="notification-content">
+                        <div class="notification-title">Loading notifications...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Activity Section -->
+        <section class="entries-card">
+            <h2>Recent User Activity</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Total Hours</th>
+                            <th>Sessions</th>
+                            <th>Last Active</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-activity-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 2rem;">
+                                Loading user activity...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
