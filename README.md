@@ -12,15 +12,18 @@ A distributed timekeeping system using Apache Kafka for processing employee chec
 ## Setup Instructions
 Clone the app:
 ```bash
-### 1. git clone https://github.com/Silverwolf0707/SimpleTimekeepingSystem.git
+git clone https://github.com/Silverwolf0707/SimpleTimekeepingSystem.git
 ```
 Change directory:
 ```bash
-### 2. cd timekeeping-app
+cd timekeeping-app
 ```
 Run on separate terminals:
 ```bash
-### 3. python app.py  python kafka_consumer.py  notification_consumer.py  analytics_consumer.py
+python app.py
+python kafka_consumer.py
+notification_consumer.py
+analytics_consumer.py
 ```
 Open in browser:
 ```bash
